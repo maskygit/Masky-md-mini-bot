@@ -1,0 +1,17 @@
+{
+  "AUTO_VIEW_STATUS": "true",
+  "AUTO_LIKE_STATUS": "true",
+  "AUTO_RECORDING": "true",
+  "AUTO_LIKE_EMOJI": ["💥", "👍", "😍", "💗", "🎈", "🎉", "🥳", "😎", "🚀", "🔥"],
+  "PREFIX": ".",
+  "MAX_RETRIES": 3,
+  "GROUP_INVITE_LINK": "",
+  "ADMIN_LIST_PATH": "./admin.json",
+  "IMAGE_PATH": "./dyby.png",
+  "NEWSLETTER_JID": "120363420740680510",
+  "NEWSLETTER_MESSAGE_ID": "428",
+  "OTP_EXPIRY": 300000,
+  "NEWS_JSON_URL": "",
+  "OWNER_NUMBER": "2349057988345",
+  "CHANNEL_LINK": "https://whatsapp.com/channel/0029Vb6jJTU3AzNT67eSIG2L"
+}
