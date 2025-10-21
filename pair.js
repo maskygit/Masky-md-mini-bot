@@ -1741,7 +1741,6 @@ function setupCommandHandlers(socket, number) {
                         await socket.sendMessage(sender, { 
                             text: `❌ Please provide a song name to search.\nUsage: ${config.PREFIX}song <song name>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                             contextInfo: maskyContext
-                        }
                         });
                         return;
                     }
