@@ -24,4 +24,4 @@ function getImage() {
   return images[randomIndex];
 }
 
-module.exports = { getImage };
+module.exports = getImage;
