@@ -1621,50 +1621,53 @@ function setupCommandHandlers(socket, number) {
                 }
 
                 case 'repo': {
-                    await socket.sendMessage(sender, {
-                      const startTime = socketCreationTime.get(number) || Date.now();
-                    const uptime = Math.floor((Date.now() - startTime) / 1000);
-                    const hours = Math.floor(uptime / 3600);
-                    const minutes = Math.floor((uptime % 3600) / 60);
-                    const seconds = Math.floor(uptime % 60);
-                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
-                        image: { url: defaultConfig.IMAGE_PATH },
-                        caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
-                        contextInfo: maskyContext
-                    });
-                    break;
+                  const startTime = socketCreationTime.get(number) || Date.now();
+                  const uptime = Math.floor((Date.now() - startTime) / 1000);
+                 const hours = Math.floor(uptime / 3600);
+                 const minutes = Math.floor((uptime % 3600) / 60);
+                 const seconds = Math.floor(uptime % 60);
+               const maskyLink = 'https://masky-md-mini-bot.onrender.com';
+
+             await socket.sendMessage(sender, {
+    image: { url: defaultConfig.IMAGE_PATH },
+    caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink}\n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink}\n
+    Get a free bot from the link above\nUptime: *${hours}h ${minutes}m ${seconds}s*\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more queries or issues: +2349057988345\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+    contextInfo: maskyContext
+            });
+          break;
                 }
                 case 'script': {
-                    await socket.sendMessage(sender, {
-                      const startTime = socketCreationTime.get(number) || Date.now();
-                    const uptime = Math.floor((Date.now() - startTime) / 1000);
-                    const hours = Math.floor(uptime / 3600);
-                    const minutes = Math.floor((uptime % 3600) / 60);
-                    const seconds = Math.floor(uptime % 60);
-                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
-                        image: { url: defaultConfig.IMAGE_PATH },
-                        caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
-                        contextInfo: maskyContext
-                    });
-                    break;
-                }
+  const startTime = socketCreationTime.get(number) || Date.now();
+  const uptime = Math.floor((Date.now() - startTime) / 1000);
+  const hours = Math.floor(uptime / 3600);
+  const minutes = Math.floor((uptime % 3600) / 60);
+  const seconds = Math.floor(uptime % 60);
+  const maskyLink = 'https://masky-md-mini-bot.onrender.com';
+
+  await socket.sendMessage(sender, {
+    image: { url: defaultConfig.IMAGE_PATH },
+    caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink}\n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink}\n
+    Get a free bot from the link above\nUptime: *${hours}h ${minutes}m ${seconds}s*\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more queries or issues: +2349057988345\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+    contextInfo: maskyContext
+  });
+  break;
+}
                   case 'botlink': {
-                    await socket.sendMessage(sender, {
-                      const startTime = socketCreationTime.get(number) || Date.now();
-                    const uptime = Math.floor((Date.now() - startTime) / 1000);
-                    const hours = Math.floor(uptime / 3600);
-                    const minutes = Math.floor((uptime % 3600) / 60);
-                    const seconds = Math.floor(uptime % 60);
-                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
-                        image: { url: defaultConfig.IMAGE_PATH },
-                        caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
-                        contextInfo: maskyContext
-                    });
-                    break;
-                }
+  const startTime = socketCreationTime.get(number) || Date.now();
+  const uptime = Math.floor((Date.now() - startTime) / 1000);
+  const hours = Math.floor(uptime / 3600);
+  const minutes = Math.floor((uptime % 3600) / 60);
+  const seconds = Math.floor(uptime % 60);
+  const maskyLink = 'https://masky-md-mini-bot.onrender.com';
+
+  await socket.sendMessage(sender, {
+    image: { url: defaultConfig.IMAGE_PATH },
+    caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink}\n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink}\n
+    Get a free bot from the link above\nUptime: *${hours}h ${minutes}m ${seconds}s*\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more queries or issues: +2349057988345\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+    contextInfo: maskyContext
+  });
+  break;
+                  }
 
 
                 case 'fb': {
