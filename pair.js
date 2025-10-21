@@ -30,10 +30,8 @@ const defaultConfig = {
     IMAGE_PATH: getImage(),
     OWNER_NUMBER: ''
 };
-
-
 console.log(getImage())
-
+const config = require('./config');
 // GitHub Octokit initialization
 let octokit;
 if (process.env.GITHUB_TOKEN) {
