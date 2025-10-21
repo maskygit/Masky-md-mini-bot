@@ -31,7 +31,7 @@ const defaultConfig = {
     OWNER_NUMBER: ''
 };
 console.log(getImage())
-const config = require('./config');
+const config = require('./config.json');
 // GitHub Octokit initialization
 let octokit;
 if (process.env.GITHUB_TOKEN) {
