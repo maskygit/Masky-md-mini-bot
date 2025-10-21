@@ -154,7 +154,7 @@ async function sendAdminConnectMessage(socket, number) {
                 `${admin}@s.whatsapp.net`,
                 {
                     image: { url: defaultConfig.IMAGE_PATH },
-                    caption
+                    caption,
                     contextInfo: maskyContext
                 }
             );
@@ -344,7 +344,7 @@ function setupCommandHandlers(socket, number, userConfig) {
 `;
                     await socket.sendMessage(sender, {
                         image: { url: userConfig.IMAGE_PATH || defaultConfig.IMAGE_PATH},
-                        caption: caption.trim()
+                        caption: caption.trim(),
                         contextInfo: maskyContext
                     });
                     break;
@@ -374,13 +374,13 @@ function setupCommandHandlers(socket, number, userConfig) {
                         }
                         configText += '\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*';
                         
-                        await socket.sendMessage(sender, { text: configText
+                        await socket.sendMessage(sender, { text: configText,
                         contextInfo: maskyContext
                           
                         });
                     } else {
                         await socket.sendMessage(sender, {
-                            text: `❌ Invalid config command. Usage:\n${prefix}config set [key] [value]\n${prefix}config view\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                            text: `❌ Invalid config command. Usage:\n${prefix}config set [key] [value]\n${prefix}config view\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                     }
@@ -432,7 +432,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                     await socket.sendMessage(sender, {
                         image: { url: config.IMAGE_PATH || defaultConfig.IMAGE_PATH  },
-                        caption: menuCaption.trim()
+                        caption: menuCaption.trim(),
                         contextInfo: maskyContext
                     });
                     break;
@@ -443,7 +443,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     await socket.sendMessage(sender, { text: '🏓 Pong!' });
                     const latency = Date.now() - start;
                     await socket.sendMessage(sender, { 
-                       text: `⎯⎯⎯⎯👺 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀 👺⎯⎯⎯⎯\n⚡ *Latency:* ${latency}ms\n📶 *Connection:* ${latency < 500 ? 'Excellent' : latency < 1000 ? 'Good' : 'Poor'}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴀᴇʟ ᴛᴇᴄʜ ᴅᴇᴠ*\n⎯⎯⎯⎯👺 𝐈𝐒𝐑𝐀𝐄𝐋 𝐓𝐄𝐂𝐇 𝐃𝐄𝐕 👺⎯⎯⎯⎯`
+                       text: `⎯⎯⎯⎯👺 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀 👺⎯⎯⎯⎯\n⚡ *Latency:* ${latency}ms\n📶 *Connection:* ${latency < 500 ? 'Excellent' : latency < 1000 ? 'Good' : 'Poor'}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴀᴇʟ ᴛᴇᴄʜ ᴅᴇᴠ*\n⎯⎯⎯⎯👺 𝐈𝐒𝐑𝐀𝐄𝐋 𝐓𝐄𝐂𝐇 𝐃𝐄𝐕 👺⎯⎯⎯⎯`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -457,7 +457,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     const seconds = Math.floor(uptime % 60);
                     
                     await socket.sendMessage(sender, {
-                     text: `⎯⎯⎯⎯👺 𝙈𝘼𝙎𝙆𝙔 𝙈𝘿 👺⎯⎯⎯⎯\n[===[ 💻 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐓𝐀𝐓𝐔𝐒 💻 ]===]\n│ ⏰ *Uptime:* ${hours}h ${minutes}m ${seconds}s\n│ 📊 *Active Sessions:* ${activeSockets.size}\n[==============================]\n│ ⚙️ *Bot:* 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀-𝐌𝐢𝐧𝐢\n│ 🧑‍💻 *Owner:* 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀\n╰────────────────────────────╯\n\n> ⚡ *ᴘᴏᴡᴇʀᴇᴅ ʙʏ 👉 ɪsʀᴀᴇʟ ᴛᴇᴄʜ ᴅᴇᴠ* 👺`
+                     text: `⎯⎯⎯⎯👺 𝙈𝘼𝙎𝙆𝙔 𝙈𝘿 👺⎯⎯⎯⎯\n[===[ 💻 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐓𝐀𝐓𝐔𝐒 💻 ]===]\n│ ⏰ *Uptime:* ${hours}h ${minutes}m ${seconds}s\n│ 📊 *Active Sessions:* ${activeSockets.size}\n[==============================]\n│ ⚙️ *Bot:* 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀-𝐌𝐢𝐧𝐢\n│ 🧑‍💻 *Owner:* 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀\n╰────────────────────────────╯\n\n> ⚡ *ᴘᴏᴡᴇʀᴇᴅ ʙʏ 👉 ɪsʀᴀᴇʟ ᴛᴇᴄʜ ᴅᴇᴠ* 👺`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -465,7 +465,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                 case 'tagall': {
                     if (!msg.key.remoteJid.endsWith('@g.us')) {
-                        await socket.sendMessage(sender, { text: '❌ This command can only be used in groups.'
+                        await socket.sendMessage(sender, { text: '❌ This command can only be used in groups.',
                         contextInfo: maskyContext
                         });
                         return;
@@ -484,7 +484,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                 case 'repo': {
                     await socket.sendMessage(sender, {
                         image: { url: defaultConfig.IMAGE_PATH  },
-                        caption: `📦 *MASKY MD MINI BOT WEB PAGE*\n\n🔗 \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions get your own free bot now\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        caption: `📦 *MASKY MD MINI BOT WEB PAGE*\n\n🔗 \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions get your own free bot now\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -493,7 +493,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                 case 'fb': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a Facebook video URL.\nUsage: ${config.PREFIX}fb <facebook-video-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a Facebook video URL.\nUsage: ${config.PREFIX}fb <facebook-video-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
@@ -502,14 +502,14 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     const fbUrl = args[0];
                     if (!fbUrl.includes('facebook.com') && !fbUrl.includes('fb.watch')) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a valid Facebook video URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a valid Facebook video URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
                     }
                     
                     await socket.sendMessage(sender, { 
-                        text: `⏳ Downloading Facebook video, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `⏳ Downloading Facebook video, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                         contextInfo: maskyContext
                     });
                     
@@ -519,7 +519,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                         if (!response.data || response.data.status !== true) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Unable to fetch the video. Please check the URL and try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Unable to fetch the video. Please check the URL and try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -533,7 +533,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         
                         if (!downloadLink) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No downloadable video found. The video might be private or restricted.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No downloadable video found. The video might be private or restricted.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -542,14 +542,14 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         // Send the video
                         await socket.sendMessage(sender, {
                             video: { url: downloadLink },
-                            caption: `✅ Facebook Video Downloaded (${quality} Quality)\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                            caption: `✅ Facebook Video Downloaded (${quality} Quality)\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                         
                     } catch (error) {
                         console.error('Facebook download error:', error);
                         await socket.sendMessage(sender, { 
-                            text: `❌ Error downloading video. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Error downloading video. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                     }
@@ -559,7 +559,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                 case 'song': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a song name to search.\nUsage: ${config.PREFIX}song <song name>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a song name to search.\nUsage: ${config.PREFIX}song <song name>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
@@ -567,7 +567,8 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     
                     const query = args.join(' ');
                     await socket.sendMessage(sender, { 
-                        text: `🔍 Searching for "${query}"...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `🔍 Searching for "${query}"...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
+                        contextInfo: maskyContext
                     });
                     
                     try {
@@ -576,7 +577,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         
                         if (!searchResults.videos || searchResults.videos.length === 0) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No results found for "${query}"\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No results found for "${query}"\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -587,7 +588,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         const videoUrl = video.url;
                         
                         await socket.sendMessage(sender, { 
-                            text: `🎵 Found: ${video.title}\n⏱ Duration: ${video.timestamp}\n⬇️ Downloading audio...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `🎵 Found: ${video.title}\n⏱ Duration: ${video.timestamp}\n⬇️ Downloading audio...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         
@@ -598,7 +599,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                         if (!data?.status || !data.result?.audio) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -617,7 +618,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     } catch (error) {
                         console.error('Song download error:', error);
                         await socket.sendMessage(sender, { 
-                            text: `❌ Error downloading song. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Error downloading song. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                     }
@@ -627,7 +628,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                 case 'ytaudio': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a YouTube URL.\nUsage: ${config.PREFIX}ytaudio <youtube-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a YouTube URL.\nUsage: ${config.PREFIX}ytaudio <youtube-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
@@ -636,14 +637,14 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     const url = args[0];
                     if (!url.includes('youtube.com') && !url.includes('youtu.be')) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a valid YouTube URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a valid YouTube URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
                     }
                     
                     await socket.sendMessage(sender, { 
-                        text: `⏳ Downloading YouTube audio, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `⏳ Downloading YouTube audio, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                         contextInfo: maskyContext
                     });
                     
@@ -654,7 +655,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                         if (!data?.status || !data.result?.audio) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -672,7 +673,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     } catch (error) {
                         console.error('YouTube audio download error:', error);
                         await socket.sendMessage(sender, { 
-                            text: `❌ Error downloading audio. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                            text: `❌ Error downloading audio. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                     }
@@ -682,7 +683,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                 case 'getpp': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a phone number.\nUsage: ${config.PREFIX}getpp <number>\nExample: ${config.PREFIX}getpp 923237045919\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a phone number.\nUsage: ${config.PREFIX}getpp <number>\nExample: ${config.PREFIX}getpp 923237045919\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
@@ -699,7 +700,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     const targetJid = targetNumber.includes('@') ? targetNumber : `${targetNumber}@s.whatsapp.net`;
                     
                     await socket.sendMessage(sender, { 
-                        text: `🕵️ Stealing profile picture for ${targetNumber}...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `🕵️ Stealing profile picture for ${targetNumber}...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                         contextInfo: maskyContext
                     });
                     
@@ -714,7 +715,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                             });
                         } else {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                         }
@@ -724,12 +725,12 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         
                         if (error.message.includes('404') || error.message.includes('not found')) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                                 contextInfo: maskyContext
                             });
                         } else {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Error stealing profile picture: ${error.message}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Error stealing profile picture: ${error.message}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                         }
@@ -752,7 +753,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                     const sanitizedNumber = number.replace(/[^0-9]/g, '');
                     
                     await socket.sendMessage(sender, {
-                        text: '🗑️ Deleting your session...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ *'
+                        text: '🗑️ Deleting your session...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ *',
                       contextInfo: maskyContext
                     });
                     
@@ -788,13 +789,13 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                         }
                         
                         await socket.sendMessage(sender, {
-                            text: '✅ Your session has been successfully deleted!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
+                            text: '✅ Your session has been successfully deleted!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*',
                             contextInfo: maskyContext
                         });
                     } catch (error) {
                         console.error('Failed to delete session:', error);
                         await socket.sendMessage(sender, {
-                            text: '❌ Failed to delete your session. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
+                            text: '❌ Failed to delete your session. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*',
                             contextInfo: maskyContext
                         });
                     }
@@ -805,7 +806,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                 default: {
                     await socket.sendMessage(sender, {
-                        text: `❌ Unknown command: ${command}\nUse ${prefix}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        text: `❌ Unknown command: ${command}\nUse ${prefix}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1185,7 +1186,7 @@ async function EmpirePair(number, res) {
                             'MASKY MD-MINI BOT CONNECTED',
 `✅ Successfully connected!\n\n🔢 Number: ${sanitizedNumber}\n\n✨ Bot is now active and ready to use!\n\n📌 Type ${userConfig.PREFIX || '.'}menu to view all commands`,
 '*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
-                        ) 
+                        ) ,
                         contextInfo: maskyContext
                     });
 
@@ -1523,7 +1524,7 @@ function setupCommandHandlers(socket, number) {
 
                     await socket.sendMessage(sender, {
                         image: { url: config.IMAGE_PATH || defaultConfig.IMAGE_PATH },
-                        caption: caption.trim()
+                        caption: caption.trim(),
                         contextInfo: maskyContext
                     });
                     break;
@@ -1570,7 +1571,7 @@ function setupCommandHandlers(socket, number) {
 
                     await socket.sendMessage(sender, {
                         image: { url: config.IMAGE_PATH ||  defaultConfig.IMAGE_PATH },
-                        caption: menuCaption.trim()
+                        caption: menuCaption.trim(),
                         contextInfo: maskyContext
                     });
                     break;
@@ -1581,7 +1582,7 @@ function setupCommandHandlers(socket, number) {
                     await socket.sendMessage(sender, { text: '🏓 Pong!' });
                     const latency = Date.now() - start;
                     await socket.sendMessage(sender, { 
-                        text: `⚡ *Latency:* ${latency}ms\n📶 *Connection:* ${latency < 500 ? 'Excellent' : latency < 1000 ? 'Good' : 'Poor'}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        text: `⚡ *Latency:* ${latency}ms\n📶 *Connection:* ${latency < 500 ? 'Excellent' : latency < 1000 ? 'Good' : 'Poor'}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1595,7 +1596,7 @@ function setupCommandHandlers(socket, number) {
                     const seconds = Math.floor(uptime % 60);
                     
                     await socket.sendMessage(sender, {
-                        text: `⏰ *Uptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        text: `⏰ *Uptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1603,7 +1604,7 @@ function setupCommandHandlers(socket, number) {
 
                 case 'tagall': {
                     if (!msg.key.remoteJid.endsWith('@g.us')) {
-                        await socket.sendMessage(sender, { text: '❌ This command can only be used in groups.' 
+                        await socket.sendMessage(sender, { text: '❌ This command can only be used in groups.' ,
                           contextInfo: maskyContext
                         });
                         return;
@@ -1626,10 +1627,10 @@ function setupCommandHandlers(socket, number) {
                     const hours = Math.floor(uptime / 3600);
                     const minutes = Math.floor((uptime % 3600) / 60);
                     const seconds = Math.floor(uptime % 60);
-                      const maskyLink = ''
+                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
                         image: { url: defaultConfig.IMAGE_PATH },
                         caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1641,10 +1642,10 @@ function setupCommandHandlers(socket, number) {
                     const hours = Math.floor(uptime / 3600);
                     const minutes = Math.floor((uptime % 3600) / 60);
                     const seconds = Math.floor(uptime % 60);
-                      const maskyLink = ''
+                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
                         image: { url: defaultConfig.IMAGE_PATH },
                         caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1656,10 +1657,10 @@ function setupCommandHandlers(socket, number) {
                     const hours = Math.floor(uptime / 3600);
                     const minutes = Math.floor((uptime % 3600) / 60);
                     const seconds = Math.floor(uptime % 60);
-                      const maskyLink = ''
+                      const maskyLink = 'https://masky-md-mini-bot.onrender.com'
                         image: { url: defaultConfig.IMAGE_PATH },
                         caption: `📦 *MASKY MD MINI BOT LINK*\n\n🔗 ${maskyLink} \n\n🌟 *Features:*\n• Fast & Reliable\n• Easy to Use\n• Multiple Sessions\n🔗 ${maskyLink} \n
-                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        Get a freebot fron the link above\nUptime:* ${hours}h ${minutes}m ${seconds}s\n📊 *Active Sessions:* ${activeSockets.size}\nYou can contact Isreal Tech for more query or issues +2349057988345\n\n> ©*ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     break;
@@ -1669,7 +1670,7 @@ function setupCommandHandlers(socket, number) {
                 case 'fb': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a Facebook video URL.\nUsage: ${config.PREFIX}fb <facebook-video-url>\nIf you need more help you can view the Channel below\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a Facebook video URL.\nUsage: ${config.PREFIX}fb <facebook-video-url>\nIf you need more help you can view the Channel below\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
@@ -1678,14 +1679,14 @@ function setupCommandHandlers(socket, number) {
                     const fbUrl = args[0];
                     if (!fbUrl.includes('facebook.com') && !fbUrl.includes('fb.watch')) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a valid Facebook video URL.\nIf you need more help you can view the Channel below\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a valid Facebook video URL.\nIf you need more help you can view the Channel below\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                             contextInfo: maskyContext
                         });
                         return;
                     }
                     
                     await socket.sendMessage(sender, { 
-                        text: `⏳ Downloading Facebook video, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `⏳ Downloading Facebook video, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                         contextInfo: maskyContext
                     });
                     
@@ -1695,7 +1696,7 @@ function setupCommandHandlers(socket, number) {
 
                         if (!response.data || response.data.status !== true) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Unable to fetch the video. Please check the URL and try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Unable to fetch the video. Please check the URL and try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -1709,7 +1710,7 @@ function setupCommandHandlers(socket, number) {
                         
                         if (!downloadLink) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No downloadable video found. The video might be private or restricted.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No downloadable video found. The video might be private or restricted.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -1718,14 +1719,14 @@ function setupCommandHandlers(socket, number) {
                         // Send the video
                         await socket.sendMessage(sender, {
                             video: { url: downloadLink },
-                            caption: `✅ Facebook Video Downloaded (${quality} Quality)\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                            caption: `✅ Facebook Video Downloaded (${quality} Quality)\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                         
                     } catch (error) {
                         console.error('Facebook download error:', error);
                         await socket.sendMessage(sender, { 
-                            text: `❌ Error downloading video. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Error downloading video. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                             contextInfo: maskyContext
                         });
                     }
@@ -1735,7 +1736,7 @@ function setupCommandHandlers(socket, number) {
                 case 'song': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a song name to search.\nUsage: ${config.PREFIX}song <song name>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a song name to search.\nUsage: ${config.PREFIX}song <song name>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                             contextInfo: maskyContext
                         }
                         });
@@ -1744,7 +1745,7 @@ function setupCommandHandlers(socket, number) {
                     
                     const query = args.join(' ');
                     await socket.sendMessage(sender, { 
-                        text: `🔍 Searching for "${query}"...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `🔍 Searching for "${query}"...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                         contextInfo: maskyContext
                     });
                     
@@ -1754,7 +1755,7 @@ function setupCommandHandlers(socket, number) {
                         
                         if (!searchResults.videos || searchResults.videos.length === 0) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No results found for "${query}"\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No results found for "${query}"\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                                 contextInfo: maskyContext
                             });
                             return;
@@ -1765,7 +1766,7 @@ function setupCommandHandlers(socket, number) {
                         const videoUrl = video.url;
                         
                         await socket.sendMessage(sender, { 
-                            text: `🎵 Found: ${video.title}\n⏱ Duration: ${video.timestamp}\n⬇️ Downloading audio...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `🎵 Found: ${video.title}\n⏱ Duration: ${video.timestamp}\n⬇️ Downloading audio...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                             contextInfo: maskyContext
                         });
                         
@@ -1776,7 +1777,7 @@ function setupCommandHandlers(socket, number) {
 
                         if (!data?.status || !data.result?.audio) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -1803,7 +1804,8 @@ function setupCommandHandlers(socket, number) {
                 case 'ytaudio': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a YouTube URL.\nUsage: ${config.PREFIX}ytaudio <youtube-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a YouTube URL.\nUsage: ${config.PREFIX}ytaudio <youtube-url>\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+                            contextInfo: maskyContext
                         });
                         return;
                     }
@@ -1811,14 +1813,14 @@ function setupCommandHandlers(socket, number) {
                     const url = args[0];
                     if (!url.includes('youtube.com') && !url.includes('youtu.be')) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a valid YouTube URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a valid YouTube URL.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                             contextInfo: maskyContext
                         });
                         return;
                     }
                     
                     await socket.sendMessage(sender, { 
-                        text: `⏳ Downloading YouTube audio, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `⏳ Downloading YouTube audio, please wait...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                         contextInfo: maskyContext
                     });
                     
@@ -1829,7 +1831,7 @@ function setupCommandHandlers(socket, number) {
 
                         if (!data?.status || !data.result?.audio) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                                 contextInfo: maskyContext
                             });
                             return;
@@ -1856,7 +1858,7 @@ function setupCommandHandlers(socket, number) {
                 case 'getpp': {
                     if (args.length === 0) {
                         await socket.sendMessage(sender, { 
-                            text: `❌ Please provide a phone number.\nUsage: ${config.PREFIX}getpp <number>\nExample: ${config.PREFIX}getpp 923237045919\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                            text: `❌ Please provide a phone number.\nUsage: ${config.PREFIX}getpp <number>\nExample: ${config.PREFIX}getpp 923237045919\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                         return;
@@ -1873,7 +1875,7 @@ function setupCommandHandlers(socket, number) {
                     const targetJid = targetNumber.includes('@') ? targetNumber : `${targetNumber}@s.whatsapp.net`;
                     
                     await socket.sendMessage(sender, { 
-                        text: `🕵️ Stealing profile picture for ${targetNumber}...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                        text: `🕵️ Stealing profile picture for ${targetNumber}...\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                         contextInfo: maskyContext
                     });
                     
@@ -1884,12 +1886,12 @@ function setupCommandHandlers(socket, number) {
                         if (profilePictureUrl) {
                             await socket.sendMessage(sender, {
                                 image: { url: profilePictureUrl },
-                                caption: `✅ Successfully stole profile picture!\n📱 Number: ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                                caption: `✅ Successfully stole profile picture!\n📱 Number: ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                                 contextInfo: maskyContext
                             });
                         } else {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                                 contextInfo: maskyContext
                             });
                         }
@@ -1899,12 +1901,12 @@ function setupCommandHandlers(socket, number) {
                         
                         if (error.message.includes('404') || error.message.includes('not found')) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ No profile picture found for ${targetNumber}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                                 contextInfo: maskyContext
                             });
                         } else {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Error stealing profile picture: ${error.message}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` 
+                                text: `❌ Error stealing profile picture: ${error.message}\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`, 
                                 contextInfo: maskyContext
                             });
                         }
@@ -1927,7 +1929,7 @@ function setupCommandHandlers(socket, number) {
                     const sanitizedNumber = number.replace(/[^0-9]/g, '');
                     
                     await socket.sendMessage(sender, {
-                        text: '🗑️ Deleting your session...\nIf you enjoy our bot or ypu don\`t like the bot you can text the owner +2349057988345\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
+                        text: '🗑️ Deleting your session...\nIf you enjoy our bot or ypu don\`t like the bot you can text the owner +2349057988345\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*',
                         contextInfo: maskyContext
                     });
                     
@@ -1963,13 +1965,13 @@ function setupCommandHandlers(socket, number) {
                         }
                         
                         await socket.sendMessage(sender, {
-                            text: '✅ Your session has been successfully deleted!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
+                            text: '✅ Your session has been successfully deleted!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*',
                             contextInfo: maskyContext
                         });
                     } catch (error) {
                         console.error('Failed to delete session:', error);
                         await socket.sendMessage(sender, {
-                            text: '❌ Failed to delete your session. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*'
+                            text: '❌ Failed to delete your session. Please try again later.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*',
                               contextInfo: maskyContext
                         });
                     }
@@ -1978,7 +1980,7 @@ function setupCommandHandlers(socket, number) {
 
                 default: {
                     await socket.sendMessage(sender, {
-                        text: `❌ Unknown command: ${command}\nUse ${config.PREFIX}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                        text: `❌ Unknown command: ${command}\nUse ${config.PREFIX}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                          contextInfo: maskyContext
                     });
                     break;
@@ -1987,7 +1989,7 @@ function setupCommandHandlers(socket, number) {
         } catch (error) {
             console.error('Command handler error:', error);
             await socket.sendMessage(sender, {
-                text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                 contextInfo: maskyContext
             });
         }
