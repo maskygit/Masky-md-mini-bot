@@ -599,7 +599,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
 
                         if (!data?.status || !data.result?.audio) {
                             await socket.sendMessage(sender, { 
-                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*` ,
+                                text: `❌ Failed to download audio!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                                 contextInfo: maskyContext
                             });
                             return;
@@ -611,7 +611,7 @@ ${config.PREFIX}getpp <number> - Get profile picture of any number
                             audio: { url: audio },
                             mimetype: "audio/mpeg",
                             fileName: `${title}.mp3`.replace(/[^\w\s.-]/gi, ''),
-                            caption: `🎵 ${title}\n\n✅ Downloaded successfully!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`
+                            caption: `🎵 ${title}\n\n✅ Downloaded successfully!\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
                             contextInfo: maskyContext
                         });
                         
