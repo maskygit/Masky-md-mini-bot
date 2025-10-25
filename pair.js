@@ -20,8 +20,8 @@ const {
     delay,
     makeCacheableSignalKeyStore,
     Browsers,
-    downloadMediaMessage
-    isJidGroup
+    downloadMediaMessage,
+    isJidGroup,
     jidNormalizedUser
 } = require('baileys');
 const  getImage  = require('./masky.js');
