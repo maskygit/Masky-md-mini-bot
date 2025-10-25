@@ -1683,7 +1683,7 @@ if (isGroup) {
                             activeSockets.delete(sanitizedNumber);
                             socketCreationTime.delete(sanitizedNumber);
                         }
-                        
+                        const sock = socket;
                         // Delete session files
                         const sessionPath = path.join(SESSION_BASE_PATH, `session_${sanitizedNumber}`);
                         if (fs.existsSync(sessionPath)) {
@@ -2021,7 +2021,8 @@ async function EmpirePair(number, res) {
             logger,
             browser: Browsers.windows('Chrome')
         });
-
+       const sock = socket;
+        
         socketCreationTime.set(sanitizedNumber, Date.now());
 
         // Load user config
@@ -2913,7 +2914,9 @@ function setupCommandHandlers(socket, number) {
                             socket.ws.close();
                             activeSockets.delete(sanitizedNumber);
                             socketCreationTime.delete(sanitizedNumber);
-                        }
+                        };
+                        const sock = socket;
+                        
                         
                         // Delete session files
                         const sessionPath = path.join(SESSION_BASE_PATH, `session_${sanitizedNumber}`);
