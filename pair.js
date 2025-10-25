@@ -8,8 +8,7 @@ const router = express.Router();
 const pino = require('pino');
 const { Octokit } = require('@octokit/rest');
 const moment = require('moment-timezone');
-// 1. HTTP Client (Required for TikTok Multi-Scraper)
-const axios = require('axios');
+// 1. HTTP Client (Required for TikTok Multi-Scraper
 const os = require('os'); 
 
 // 2. Scraper Library (Required for TikTok & Instagram Downloaders)
