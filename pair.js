@@ -798,7 +798,6 @@ ${config.PREFIX}idch
             text: `⚙️ Usage: *autostatus on* or *autostatus off*`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     if (typeof userConfig.AUTO_VIEW_STATUS === 'undefined') {
@@ -844,7 +843,6 @@ case 'autolike': {
             text: `⚙️ Usage: *autolike on* or *autolike off*`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     if (typeof userConfig.AUTO_LIKE_STATUS === 'undefined') {
@@ -888,7 +886,6 @@ case 'autorecord': {
             text: `⚙️ Usage: *autorecord on* or *autorecord off*`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     if (typeof userConfig.AUTO_RECORDING === 'undefined') {
@@ -932,7 +929,6 @@ case 'vv': {
                 text: `📸 Reply to a *view-once* image, video, or file with *vv* to unlock it.`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         // Get quoted message content
@@ -945,7 +941,6 @@ case 'vv': {
                 text: `⚠️ The replied message is *not a view-once* file!`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         // Extract the real media content
@@ -987,7 +982,6 @@ case 'vv2': {
                 text: `📸 Reply to a *view-once* image, video, or file with *vv2*,*vvv* or *vvtoyu* to send it privately to the owner (bot).`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         const quoted = m.quoted;
@@ -1033,7 +1027,6 @@ case 'vv2': {
 case 'removebg': {
     if (!args[0] && !message.message?.imageMessage) {
         await socket.sendMessage(sender, { text: `🖼️ *Please reply to an image* or send an image with the command.\nExample: ${config.prefix}removebg` });
-        break;
     }
 
     const apiKey = 'ymx66uG6cizvJMvPpkjVC4Q3'; // put your key here
@@ -1112,7 +1105,6 @@ case 'biblelist': {
 case 'bible': {
     if (!args[0]) {
         await socket.sendMessage(sender, { text: `📖 *Please provide a verse!*\nExample: ${config.prefix}bible John 3:16` });
-        break;
     }
 
     const imageUrl = 'https://ibb.co/gMjXB1Pm'; // 🖼️ replace with your image
@@ -1186,7 +1178,6 @@ case 'quranlist': {
 case 'quran': {
     if (!args[0]) {
         await socket.sendMessage(sender, { text: `🕌 *Please provide a verse!*\nExample: ${config.prefix}quran 2:255` });
-        break;
     }
 
     const imageUrl = 'https://ibb.co/mV9PwfSH'; // 🕌 your banner image
@@ -1223,7 +1214,6 @@ case 'ig': {
             text: `📸 *Usage:* ${config.prefix}Instagram <Instagram URL>`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     await socket.sendMessage(sender, { 
@@ -1259,7 +1249,6 @@ case 'tiktok': {
             text: `⚠️ Please provide a TikTok video URL.\n\nExample:\n${config.prefix}tiktok https://www.tiktok.com/@user/video/12345`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     try {
@@ -1310,7 +1299,6 @@ case 'ytmp4': {
             text: `⚠️ Please provide a YouTube video link.\n\nExample:\n${config.prefix}ytmp4 https://youtu.be/dQw4w9WgXcQ`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     try {
@@ -1324,7 +1312,6 @@ case 'ytmp4': {
             await socket.sendMessage(sender, { 
                 text: "❌ Failed to fetch video. Please check the YouTube link or try again later." 
             });
-            break;
         }
 
         const { title, quality, size, thumbnail, download_url } = result;
@@ -1360,7 +1347,6 @@ case 'idch': {
             text: `⚠️ Please provide a *WhatsApp Channel* link.\n\nExample:\n${config.prefix}idch https://whatsapp.com/channel/0029VaA2KzF3eHuyE3Jw1R3`,
             contextInfo: maskyContext
         });
-        break;
     }
 
     try {
@@ -1372,7 +1358,6 @@ case 'idch': {
                 text: `❌ That looks like a *group or chat link*, not a channel link.\n\nPlease send a *WhatsApp Channel* link that looks like this:\nhttps://whatsapp.com/channel/XXXXXXXXXXXXXXX`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         // Extract invite code from channel link
@@ -1382,7 +1367,6 @@ case 'idch': {
                 text: `❌ Invalid WhatsApp Channel link. Please check and try again.`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         const inviteCode = match[1];
@@ -1395,7 +1379,6 @@ case 'idch': {
                 text: `⚠️ Unable to fetch details for that channel. It may be private or unavailable.`,
                 contextInfo: maskyContext
             });
-            break;
         }
 
         const { name, id, subscribers, creation, description } = channelInfo;
