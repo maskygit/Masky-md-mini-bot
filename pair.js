@@ -959,7 +959,7 @@ case 'vv': {
     }
     break;
 }
-case 'vvv'
+case 'vvv':
 case 'vvtoyu':
 case 'vv2': {
     try {
