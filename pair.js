@@ -2261,8 +2261,8 @@ ${config.PREFIX}idch
                     break;
                 }
                 
-                case 'botlink'
-                case 'sc'
+                case 'botlink':
+                case 'sc':
                 case 'script':
                 case 'repo': {
                   const startTime = socketCreationTime.get(number) || Date.now();
