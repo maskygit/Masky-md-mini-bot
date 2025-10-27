@@ -1204,7 +1204,7 @@ case 'ig': {
     const igUrl = args[0];
     if (!igUrl) {
         await socket.sendMessage(sender, { 
-            text: `📸 *Usage:* ${config.prefix}Instagram <Instagram URL>` 
+            text: `📸 *Usage:* ${config.prefix}Instagram <Instagram URL>`,
             contextInfo: maskyContext
         });
         break;
