@@ -2636,34 +2636,47 @@ ${config.PREFIX}idch
     break;
 }
 
-
 case 'autolike': {
-    try {
-        const action = args[0];
-        if (!action) {
+    const input = args[0]?.toLowerCase();
+
+    if (!input || !['on', 'off'].includes(input)) {
+        await socket.sendMessage(sender, {
+            text: `⚙️ Usage: *autolike on* or *autolike off*`,
+            contextInfo: maskyContext
+        });
+        break;
+    }
+
+    if (typeof userConfig.AUTO_LIKE_STATUS === 'undefined') {
+        userConfig.AUTO_LIKE_STATUS = 'false';
+    }
+
+    if (input === 'on') {
+        if (userConfig.AUTO_LIKE_STATUS === 'true') {
             await socket.sendMessage(sender, {
-                text: `⚙️ Usage: *autolike on* or *autolike off*`,
+                text: `👍 Auto Like is already *ON!* ❤️\n> Bot is already liking statuses automatically.`,
                 contextInfo: maskyContext
             });
-            return;
+        } else {
+            userConfig.AUTO_LIKE_STATUS = 'true';
+            await socket.sendMessage(sender, {
+                text: `✅✔️ Auto Like turned *ON!*\n> Bot will begin to like statuses ❤️`,
+                contextInfo: maskyContext
+            });
         }
-
-        const newValue = action.toLowerCase() === 'on' ? 'true' : 'false';
-        userConfig.AUTO_LIKE_STATUS = newValue;
-
-        // Save config (if you have saveUserConfig)
-        await saveUserConfig(number, userConfig);
-
-        await socket.sendMessage(sender, {
-            text: `✅ Auto-like is now *${action.toUpperCase()}*`,
-            contextInfo: maskyContext
-        });
-    } catch (err) {
-        console.error('AUTOLIKE ERROR:', err);
-        await socket.sendMessage(sender, {
-            text: `❌ Error in autolike command: ${err.message}`,
-            contextInfo: maskyContext
-        });
+    } else if (input === 'off') {
+        if (userConfig.AUTO_LIKE_STATUS === 'false') {
+            await socket.sendMessage(sender, {
+                text: `❌ Auto Like is already *OFF!* 😴`,
+                contextInfo: maskyContext
+            });
+        } else {
+            userConfig.AUTO_LIKE_STATUS = 'false';
+            await socket.sendMessage(sender, {
+                text: `❌ Auto Like turned *OFF!*\n> Bot will stop liking statuses.`,
+                contextInfo: maskyContext
+            });
+        }
     }
     break;
 }
@@ -3083,7 +3096,7 @@ case 'tiktok': {
     } catch (error) {
         console.error("TikTok Downloader Error:", error);
         await socket.sendMessage(sender, { 
-            text: "❌ An error occurred while processing the TikTok video. Please try again later." ,
+            text: `⚠️ Please provide a TikTok video URL.\n\nExample:\n${config.prefix}tiktok https://www.tiktok.com/@user/video/12345.`,
             contextInfo: maskyContext
         });
     }
@@ -3134,9 +3147,7 @@ case 'ytmp4': {
     } catch (error) {
         console.error("YouTube MP4 Error:", error);
         await socket.sendMessage(sender, { 
-            text: "❌ An error occurred while processing the YouTube video. Please try again later." 
-        });
-    }
+            text:`⚠️ Please provide a YouTube video link.\n\nExample:\n${config.prefix}ytmp4 https://youtu.be/dQw4w9WgXcQ`
 
     break;
 }
