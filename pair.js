@@ -2043,7 +2043,7 @@ module.exports = router;
 // commands handler with old cmds 
 
 // Memory optimization: Streamline command handlers with rate limiting
-function setupCommandHandlers(socket, number) {
+function setupCommandHandlers(socket, number, userConfig) {
     const commandCooldowns = new Map();
     const COMMAND_COOLDOWN = 1000; // 1 second per user
     
