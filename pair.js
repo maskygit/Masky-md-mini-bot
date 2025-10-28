@@ -3147,8 +3147,9 @@ case 'ytmp4': {
     } catch (error) {
         console.error("YouTube MP4 Error:", error);
         await socket.sendMessage(sender, { 
-            text:`⚠️ Please provide a YouTube video link.\n\nExample:\n${config.prefix}ytmp4 https://youtu.be/dQw4w9WgXcQ`
+            text:`⚠️ Please provide a YouTube video link.\n\nExample:\n${config.prefix}ytmp4 https://youtu.be/dQw4w9WgXcQ`});
 
+}
     break;
 }
 case 'idch': {
