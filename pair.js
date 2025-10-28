@@ -2638,46 +2638,32 @@ ${config.PREFIX}idch
 
 
 case 'autolike': {
-    const input = args[0]?.toLowerCase();
+    try {
+        const action = args[0];
+        if (!action) {
+            await socket.sendMessage(sender, {
+                text: `⚙️ Usage: *autolike on* or *autolike off*`,
+                contextInfo: maskyContext
+            });
+            return;
+        }
 
-    if (!input || !['on', 'off'].includes(input)) {
+        const newValue = action.toLowerCase() === 'on' ? 'true' : 'false';
+        userConfig.AUTO_LIKE_STATUS = newValue;
+
+        // Save config (if you have saveUserConfig)
+        await saveUserConfig(number, userConfig);
+
         await socket.sendMessage(sender, {
-            text: `⚙️ Usage: *autolike on* or *autolike off*`,
+            text: `✅ Auto-like is now *${action.toUpperCase()}*`,
             contextInfo: maskyContext
         });
-        break;
-    }
-
-    if (typeof userConfig.AUTO_LIKE_STATUS === 'undefined') {
-        userConfig.AUTO_LIKE_STATUS = 'false';
-    }
-
-    if (input === 'on') {
-        if (userConfig.AUTO_LIKE_STATUS === 'true') {
-            await socket.sendMessage(sender, {
-                text: `👍 Auto Like is already *ON!* ❤️\n> Bot is already liking statuses automatically.`,
-                contextInfo: maskyContext
-            });
-        } else {
-            userConfig.AUTO_LIKE_STATUS = 'true';
-            await socket.sendMessage(sender, {
-                text: `✅✔️ Auto Like turned *ON!*\n> Bot will begin to like statuses ❤️`,
-                contextInfo: maskyContext
-            });
-        }
-    } else if (input === 'off') {
-        if (userConfig.AUTO_LIKE_STATUS === 'false') {
-            await socket.sendMessage(sender, {
-                text: `❌ Auto Like is already *OFF!* 😴`,
-                contextInfo: maskyContext
-            });
-        } else {
-            userConfig.AUTO_LIKE_STATUS = 'false';
-            await socket.sendMessage(sender, {
-                text: `❌ Auto Like turned *OFF!*\n> Bot will stop liking statuses.`,
-                contextInfo: maskyContext
-            });
-        }
+    } catch (err) {
+        console.error('AUTOLIKE ERROR:', err);
+        await socket.sendMessage(sender, {
+            text: `❌ Error in autolike command: ${err.message}`,
+            contextInfo: maskyContext
+        });
     }
     break;
 }
