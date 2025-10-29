@@ -2399,15 +2399,6 @@ ${config.PREFIX}autolike ${likeStatus}
         { buttonId: 'cmd_config', buttonText: { displayText: '⚙️ CONFIG MASKY MD' }, type: 1 },
         { buttonId: 'cmd_menu', buttonText: { displayText: '🧩 MAIN MENU' }, type: 1 }
     ];
-
-    await socket.sendMessage(sender, {
-        image: { url: config.IMAGE_PATH || defaultConfig.IMAGE_PATH },
-        caption: menuCaption.trim(),
-        footer: 'Masky Multi-Device | Powered by Fasasi Isreal',
-        buttons: menuButtons,
-        headerType: 4,
-        contextInfo: maskyContext
-
     const menuCaption = `
 ⫷⫷⫷👺 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀 • 𝐌𝐄𝐍𝐔 👺⫸⫸⫸
 💀 ʜᴇʏ ${number}  
