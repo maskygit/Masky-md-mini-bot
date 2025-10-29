@@ -29,8 +29,8 @@ const defaultConfig = {
     MAX_RETRIES: 3,
     ADMIN_LIST_PATH: './admin.json',
     IMAGE_PATH: getImage(),
-    OWNER_NUMBER: ''
-    BOT_MODE: false,  // true = only owner can use the bot
+    OWNER_NUMBER: '',
+    BOT_MODE: false
 };
 console.log(getImage())
 const config = require('./config.json');
