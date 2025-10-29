@@ -2162,10 +2162,9 @@ ${config.PREFIX}idch
 `;
 
     
-
 await socket.sendMessage(sender, {
     image: { url: config.IMAGE_PATH || defaultConfig.IMAGE_PATH },
-    caption: menuCaption.trim()
+    caption: menuCaption.trim(), // ✅ COMMA WAS MISSING HERE
     footer: 'Masky Multi-Device | Powered by Fasasi Isreal',
     buttons: [
         { buttonId: 'cmd_ping', buttonText: { displayText: '📶 PING MASKY MD' } },
