@@ -2410,13 +2410,6 @@ ${config.PREFIX}autolike ${likeStatus}
     const os = require('os');
     const ramUsage = Math.round(process.memoryUsage().rss / 1024 / 1024);
     const totalRam = Math.round(os.totalmem() / 1024 / 1024);
-    
-    const menuButtons = [
-        { buttonId: 'cmd_ping', buttonText: { displayText: '📶 PING MASKY MD' }, type: 1 },
-        { buttonId: 'cmd_get', buttonText: { displayText: '🤖 GET MASKY MD' }, type: 1 },
-        { buttonId: 'cmd_config', buttonText: { displayText: '⚙️ CONFIG MASKY MD' }, type: 1 },
-        { buttonId: 'cmd_menu', buttonText: { displayText: '🧩 MAIN MENU' }, type: 1 }
-    ];
     const menuCaption = `
 ⫷⫷⫷👺 𝐌𝐀𝐒𝐊𝐘 𝐌𝐃 🚀 • 𝐌𝐄𝐍𝐔 👺⫸⫸⫸
 💀 ʜᴇʏ ${number}  
@@ -2483,14 +2476,18 @@ ${config.PREFIX}idch
 👺 *ᴍᴀsᴋʏ ᴍᴅ ʙʏ ɪsʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ* 👺
 `;
 
-    await socket.sendMessage(sender, {
-        image: { url: config.IMAGE_PATH || defaultConfig.IMAGE_PATH },
-        caption: menuCaption.trim(),
-        footer: 'Masky Multi-Device | Powered by Fasasi Isreal',
-        buttons: menuButtons,
-        headerType: 4,
-        contextInfo: maskyContext
-    });
+
+await socket.sendMessage(sender, {
+    text: menuCaption,
+    footer: 'Masky Multi-Device | Powered by Fasasi Isreal',
+    buttons: [
+        { buttonId: 'cmd_ping', buttonText: { displayText: '📶 PING MASKY MD' } },
+        { buttonId: 'cmd_get', buttonText: { displayText: '🤖 GET MASKY MD' } },
+        { buttonId: 'cmd_config', buttonText: { displayText: '⚙️ CONFIG MASKY MD' } },
+        { buttonId: 'cmd_menu', buttonText: { displayText: '🧩 MAIN MENU' } }
+    ],
+    viewOnce: true
+});
     break;
 }
                 case 'ping': {
