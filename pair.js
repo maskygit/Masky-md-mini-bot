@@ -3260,46 +3260,37 @@ case 'mode': {
                 text: '✅ *Private Mode Activated!* Only you can use the bot now.',
                 contextInfo: maskyContext
             });
-        } else {
+        } else if (option === 'off') {
             userConfig.BOT_MODE = false;
             await socket.sendMessage(sender, {
-                text: '🔓 *Private Mode Disabled!* Everyone can use the bot now.\nNow other people can use your bot',
+                text: '🔓 *Private Mode Disabled!* Everyone can use the bot now.\nNow other people can use your bot.',
                 contextInfo: maskyContext
             });
         }
-    } catch (error) {
-        console.error('Error in mode command:', error);
-        await socket.sendMessage(sender, {
-            text: '❌ An error occurred while changing the bot mode. Please try again.',
-            contextInfo: maskyContext
-        });
-    }
-    break;
-}
     } catch (error) {
         console.error('Error in mode command:', error);
         await socket.sendMessage(sender, {
             text: `❌ Error in mode command: ${error.message}`,
             contextInfo: maskyContext
         });
-        break;
     }
-}
 
-             /*default: {
-                    await socket.sendMessage(sender, {
-                        text: `❌ Unknown command: ${command}\nUse ${config.PREFIX}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
-                         contextInfo: maskyContext
-                    });
-                    break;
-                }*/
+    break;
             }
-        } catch (error) {
-            console.error('Command handler error:', error);
-            await socket.sendMessage(sender, {
-                text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
-                contextInfo: maskyContext
-            });
-        }
+                    /*default: {
+    await socket.sendMessage(sender, {
+        text: `❌ Unknown command: ${command}\nUse ${config.PREFIX}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+        contextInfo: maskyContext
     });
+    break;
+}*/
+        }
+    } catch (error) {
+        console.error('Command handler error:', error);
+        await socket.sendMessage(sender, {
+            text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
+            contextInfo: maskyContext
+        });
+    }
+});
 }
