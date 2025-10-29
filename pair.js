@@ -2068,21 +2068,39 @@ function setupCommandHandlers(socket, number, userConfig) {
 
         const sender = msg.key.remoteJid;
         const now = Date.now();
+// ⚙️ Handle all button presses
+if (
+    msg.message?.buttonsResponseMessage ||
+    msg.message?.templateButtonReplyMessage ||
+    msg.message?.interactiveResponseMessage
+) {
+    let buttonId;
 
-        // ⚙️ Handle button presses before command logic
-        // ⚙️ Handle button presses before command logic
-if (msg.message?.buttonsResponseMessage) {
-    const buttonId = msg.message.buttonsResponseMessage.selectedButtonId;
-if (buttonId.startsWith('copy_code_')) {
-    const code = buttonId.replace('copy_code_', '');
-    await socket.sendMessage(sender, { 
-        text: `✅ Code *${code}* copied successfully!` 
-    });
-    return;
-}
+    if (msg.message?.buttonsResponseMessage)
+        buttonId = msg.message.buttonsResponseMessage.selectedButtonId;
+    else if (msg.message?.templateButtonReplyMessage)
+        buttonId = msg.message.templateButtonReplyMessage.selectedId;
+    else if (msg.message?.interactiveResponseMessage)
+        buttonId = msg.message.interactiveResponseMessage.nativeFlowResponseMessage?.paramsJson
+            ? JSON.parse(msg.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id
+            : msg.message.interactiveResponseMessage.buttonId;
+
+    console.log("🟢 Button Press Detected:", buttonId);
+
+    if (!buttonId) return;
+
+    if (buttonId.startsWith('copy_code_')) {
+        const code = buttonId.replace('copy_code_', '');
+        await socket.sendMessage(sender, {
+            text: `✅ Code *${code}* copied successfully!`
+        });
+        return;
+    }
+
     if (buttonId.startsWith('cmd_') || buttonId.startsWith('toggle_')) {
         const cmd = buttonId.replace('cmd_', '').trim();
-
+        console.log("🟢 Executing button command:", cmd);
+        
         switch (cmd) {
           case 'menu': {
     const startTime = socketCreationTime.get(number) || Date.now();
