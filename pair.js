@@ -2073,7 +2073,7 @@ function setupCommandHandlers(socket, number, userConfig) {
         // ⚙️ Handle button presses before command logic
 if (msg.message?.buttonsResponseMessage) {
     const buttonId = msg.message.buttonsResponseMessage.selectedButtonId;
-    if (buttonId.startsWith('cmd_') {
+    if (buttonId.startsWith('cmd_')) {
         const cmd = buttonId.replace('cmd_', '').trim();
 
         switch (cmd) {
