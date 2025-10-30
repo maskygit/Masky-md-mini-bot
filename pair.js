@@ -3486,52 +3486,57 @@ case 'mode': {
     break;
             }
            case 'pair': {
-    const phoneNumber = args[0];
-    if (!phoneNumber) {
-        await socket.sendMessage(sender, {
-            text: `⚙️ Usage: *${config.PREFIX}pair <number>*\n\nExample:\n${config.PREFIX}pair +2349012345678`,
-            contextInfo: maskyContext
-        });
-        break;
-    }
-
-    try {
-        const axios = require('axios');
-        const cleanNumber = phoneNumber.replace(/[^0-9]/g, '');
-        
-
-        // 🕐 Notify user
-        await socket.sendMessage(sender, {
-            text: '🔄 Please wait... pairing in progress.',
-            contextInfo: maskyContext
-        });
-
-        // 🌍 Fetch pairing code
-        const response = await axios.get(`${maskyLink}/code?number=${cleanNumber}`);
-        const pairCode = response.data.code;
-
-        if (!pairCode) {
-            throw new Error('No pairing code received from server.');
-        }
-
-        // 🎨 Send message with copy button
-
-await socket.sendMessage(sender, {
-    image: { url: defaultConfig.IMAGE_PATH }, // ✅ optional image (you can remove this line if no image)
-    caption: `✅ *PAIRING COMPLETE!*\n\n📱 *Number:* +${cleanNumber}\n🔐 *Pairing Code:* ${pairCode}\n\nView *Code* below to copy it easily.`,
-    footer: '© Masky Tech Dev',});
-await socket.sendMessage(sender, {
-  text: `${pairCode}`
-})
-    } catch (error) {
-        console.error('Error in pair command:', error);
-        await socket.sendMessage(sender, {
-            text: `❌ Failed to generate pairing code.\n\n> Error: ${error.message}\nYou can Go to ${maskyLink} and pair your bot there`,
-            contextInfo: maskyContext
-        });
-    }
+  const phoneNumber = args[0];
+  if (!phoneNumber) {
+    await socket.sendMessage(sender, {
+      text: `⚙️ Usage: *${config.PREFIX}pair <number>*\n\nExample:\n${config.PREFIX}pair +2349012345678`,
+      contextInfo: maskyContext
+    });
     break;
-}
+  }
+
+  try {
+    const axios = require('axios');
+    const cleanNumber = phoneNumber.replace(/[^0-9]/g, '');
+
+    await socket.sendMessage(sender, {
+      text: '🔄 Please wait... pairing in progress.',
+      contextInfo: maskyContext
+    });
+
+    const response = await axios.get(`${maskyLink}/code?number=${cleanNumber}`);
+    const pairCode = response.data.code;
+
+    if (!pairCode) {
+      throw new Error('No pairing code received from server.');
+    }
+
+    // ✅ Correct syntax (no extra brace)
+    await socket.sendMessage(sender, {
+      image: { url: defaultConfig.IMAGE_PATH },
+      caption: `✅ *PAIRING COMPLETE!*\n\n📱 *Number:* +${cleanNumber}\n🔐 *Pairing Code:* ${pairCode}\n\nView *Code* below to copy it easily.`,
+      footer: '© Masky Tech Dev',
+      contextInfo: maskyContext,
+      quoted: msg
+    });
+
+    // ✅ Send code separately
+    await socket.sendMessage(sender, {
+      text: `${pairCode}`,
+      contextInfo: maskyContext,
+      quoted: msg
+    });
+
+  } catch (error) {
+    console.error('Error in pair command:', error);
+    await socket.sendMessage(sender, {
+      text: `❌ Failed to generate pairing code.\n\n> Error: ${error.message}\nYou can go to ${maskyLink} and pair your bot there.`,
+      contextInfo: maskyContext,
+      quoted: msg
+    });
+  }
+  break;
+           }
                     /*default: {
     await socket.sendMessage(sender, {
         text: `❌ Unknown command: ${command}\nUse ${config.PREFIX}menu to see available commands.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
