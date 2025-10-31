@@ -3552,6 +3552,6 @@ case 'mode': {
             contextInfo: maskyContext
         });
     }
-});
+};
 }
 
