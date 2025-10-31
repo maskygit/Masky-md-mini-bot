@@ -3553,5 +3553,5 @@ await socket.sendMessage(sender,{text: `${pairCodeg}`,
             contextInfo: maskyContext
         });
     }
-});
+};
 }
