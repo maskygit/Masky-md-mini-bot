@@ -3551,8 +3551,8 @@ case 'mode': {
             text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
             contextInfo: maskyContext
                 });
-    }
 });
-};
+    }
+};  
 }
 
