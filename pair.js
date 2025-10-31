@@ -2266,29 +2266,6 @@ break;
         const command = parts[0].toLowerCase();
         const args = parts.slice(1);
 
-// 🔐 BOT_MODE protection
-const ownerJid = `${userConfig.OWNER_NUMBER || sanitizedNumber}@s.whatsapp.net`;
-const from = msg.key.remoteJid;
-const participant = msg.key.participant || sender;
-const isGroup = from.endsWith('@g.us');
-
-// ✅ Allowed JIDs (owner, group, broadcast, status, etc.)
-const allowedJids = [
-  ownerJid,
-  '120363043922849123@g.us',     // Group chat
-  '120363043922849123@broadcast', // Broadcast
-  'status@broadcast',             // WhatsApp status
-  '120363043922849123@c.us',      // Another chat ID
-  '2348012345678@s.whatsapp.net'  // Secondary owner / user
-];
-
-// 🧠 New logic for BOT_MODE
-if (userConfig.BOT_MODE === 'private') {
-  if (!allowedJids.includes(from) && !allowedJids.includes(participant)) {
-    return; // 🚫 Ignore if not in allowed list
-  }
-}
-
 try {
             switch (command) {
                 case 'alive': {
