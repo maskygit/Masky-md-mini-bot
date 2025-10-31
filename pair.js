@@ -3551,7 +3551,8 @@ await socket.sendMessage(sender,{text: `${pairCodeg}`,
         await socket.sendMessage(sender, {
             text: `❌ An error occurred while processing your command. Please try again.\n\n> © *ᴛʜɪꜱ ʙᴏᴛ ᴩᴏᴡᴇʀᴇᴅ ʙy 👉 ɪꜱʀᴇᴀʟ ᴛᴇᴄʜ ᴅᴇᴠ*`,
             contextInfo: maskyContext
-        });
+                });
     }
 };
+});
 }
